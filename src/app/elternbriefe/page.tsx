@@ -1,35 +1,60 @@
-﻿import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Elternbriefe - Felsland Grundschule',
+  title: 'Elternbriefe &ndash; Felsland Grundschule Bruchweiler-B&auml;renbach',
 }
 
 export default function ElternbriefePage() {
   return (
-    <div className="container mx-auto px-4 py-12 max-w-2xl text-center">
-      <h1 className="text-4xl font-bold text-green-900 mb-6">Elternbriefe</h1>
-      <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-8">
-        <svg className="w-12 h-12 text-yellow-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-        </svg>
-        <h2 className="text-xl font-bold text-yellow-800 mb-3">Geschützter Bereich</h2>
-        <p className="text-gray-700">
-          Dieser Bereich ist nur für Erziehungsberechtigte zugänglich.
-        </p>
-        <p className="text-gray-600 mt-3">
-          Bitte wenden Sie sich an das Sekretariat für den Zugangscode:
-        </p>
-        <div className="mt-4 bg-white rounded-lg p-4 inline-block text-left">
-          <p className="font-semibold">Judith Hagenmüller</p>
-          <p className="text-sm text-gray-600">Sprechzeiten: Mi &amp; Do, 8&ndash;12 Uhr</p>
-          <a href="tel:+4963949209560" className="block mt-1 text-green-700 font-medium hover:underline">
-            (0 63 94) 92 09 56 0
-          </a>
-          <a href="mailto:judith.hagenmueller@dahner-felsenland.de" className="block text-blue-600 hover:underline text-sm break-all">
-            judith.hagenmueller@dahner-felsenland.de
-          </a>
+    <>
+      <section style={{background: 'linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%)'}}>
+        <div className="container mx-auto px-4 py-12 text-center text-white">
+          <h1 className="text-3xl md:text-4xl font-bold mb-3">Elternbriefe</h1>
+          <p className="text-green-200">Aktuelle Informationen f&uuml;r Eltern</p>
         </div>
-      </div>
-    </div>
+      </section>
+
+      <section className="py-12">
+        <div className="container mx-auto px-4 max-w-2xl">
+          <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 text-center">
+            <div className="text-5xl mb-4">&#128233;</div>
+            <h2 className="text-xl font-bold text-green-800 mb-4">Elternbriefe der Felsland Grundschule</h2>
+            <p className="text-gray-600 mb-6">
+              Die aktuellen Elternbriefe k&ouml;nnen Sie direkt &uuml;ber die Originalseite der Schule abrufen.
+              Bitte besuchen Sie f&uuml;r die aktuellsten Informationen die offizielle Schulwebsite.
+            </p>
+            <a
+              href="https://www.felsland-grundschule.de/elternbriefe/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+            >
+              Elternbriefe auf felsland-grundschule.de &rarr;
+            </a>
+          </div>
+
+          <div className="mt-8 bg-green-50 rounded-2xl p-6">
+            <h3 className="font-bold text-green-800 mb-3">Kontakt bei Fragen</h3>
+            <p className="text-gray-700 mb-2">
+              Bei Fragen zu Elternbriefen wenden Sie sich bitte direkt ans Sekretariat:
+            </p>
+            <p><strong>Judith Hagenm&uuml;ller</strong></p>
+            <p>
+              <a href="tel:+4963949209560" className="text-green-700 hover:underline">
+                (06394) 92 09 56 &ndash; 0
+              </a>
+            </p>
+            <p>
+              <a href="mailto:judith.hagenmueller@dahner-felsenland.de" className="text-blue-600 hover:underline text-sm">
+                judith.hagenmueller@dahner-felsenland.de
+              </a>
+            </p>
+            <div className="mt-3 text-sm text-gray-500">
+              <p>Sprechzeiten: Mittwoch und Donnerstag, 8 &ndash; 12 Uhr</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   )
 }

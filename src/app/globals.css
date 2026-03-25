@@ -3,34 +3,64 @@
 @tailwind utilities;
 
 :root {
-  --color-primary: #2e7d32;
-  --color-primary-dark: #1b5e20;
-  --color-primary-light: #4caf50;
-  --color-secondary: #1565c0;
-  --color-accent: #ff8f00;
-  --color-bg: #f9fbe7;
+  --color-primary: #1b5e20;
+  --color-primary-light: #2e7d32;
+  --color-primary-dark: #145214;
+  --color-secondary: #f9a825;
+  --color-accent: #81c784;
+  --color-bg: #f1f8e9;
   --color-text: #1a1a1a;
 }
 
-html {
-  scroll-behavior: smooth;
+* {
+  box-sizing: border-box;
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   color: var(--color-text);
-  background-color: #ffffff;
-}
-
-.nav-link {
-  @apply text-white hover:text-yellow-200 transition-colors font-medium px-3 py-2;
+  background: #fff;
 }
 
 .section-title {
-  @apply text-3xl font-bold text-center mb-8;
-  color: var(--color-primary-dark);
+  @apply text-2xl md:text-3xl font-bold text-center mb-8;
+  color: var(--color-primary);
 }
 
-.card {
-  @apply bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow;
+.nav-link {
+  @apply px-4 py-2 rounded-lg font-medium transition-colors duration-200;
+}
+
+.nav-link:hover {
+  background-color: rgba(255,255,255,0.15);
+}
+
+.btn-primary {
+  @apply inline-block px-6 py-3 rounded-lg font-semibold transition-all duration-200;
+  background-color: var(--color-secondary);
+  color: #1a1a1a;
+}
+
+.btn-primary:hover {
+  background-color: #f57f17;
+  transform: translateY(-1px);
+}
+
+/* Demo Banner */
+.demo-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #1a1a1a;
+  color: #fff;
+  text-align: center;
+  padding: 8px 16px;
+  font-size: 13px;
+  z-index: 9999;
+}
+
+.demo-banner a {
+  color: #f9a825;
+  text-decoration: underline;
 }

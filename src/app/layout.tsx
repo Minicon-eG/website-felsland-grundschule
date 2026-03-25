@@ -1,9 +1,10 @@
-﻿import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 import './globals.css'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Felsland Grundschule Bruchweiler-Bärenbach',
-  description: 'Offizielle Website der Felsland Grundschule Bruchweiler-Bärenbach',
+  title: 'Felsland Grundschule Bruchweiler-B&auml;renbach',
+  description: 'Die Felsland-Grundschule Bruchweiler-B&auml;renbach betreut Sch&uuml;lerinnen und Sch&uuml;ler aus Bruchweiler-B&auml;renbach, Bundenthal, Bobenthal, Erlenbach, Nothweiler, Niederschlettenbach und Rumbach.',
 }
 
 export default function RootLayout({
@@ -17,65 +18,91 @@ export default function RootLayout({
         {/* minicon:felsland-grundschule */}
       </head>
       <body>
-        <header style={{background: 'var(--color-primary)'}}>
-          <nav className="container mx-auto px-4 py-4 flex items-center justify-between flex-wrap gap-4">
-            <a href="/" className="text-white font-bold text-xl leading-tight">
-              <span className="block text-sm font-normal opacity-90">Felsland</span>
-              Grundschule
-            </a>
-            <div className="flex flex-wrap gap-1">
-              <a href="/" className="nav-link">Start</a>
-              <a href="/unsere-schule" className="nav-link">Unsere Schule</a>
-              <a href="/bildergalerie" className="nav-link">Galerie</a>
-              <a href="/bildergalerie-50-jahre" className="nav-link">50 Jahre</a>
-              <a href="/elternbriefe" className="nav-link">Elternbriefe</a>
+        <nav style={{background: 'var(--color-primary)'}} className="sticky top-0 z-50 shadow-lg">
+          <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+            <Link href="/" className="flex items-center gap-3">
+              <img
+                src="https://www.felsland-grundschule.de/wp-content/uploads/2022/06/Grundschule-Dahn-Logo-e1655813930773-1024x321.png"
+                alt="Felsland Grundschule Logo"
+                className="h-10 w-auto"
+                style={{filter: 'brightness(0) invert(1)'}}
+              />
+            </Link>
+            <div className="hidden md:flex gap-1">
+              <Link href="/" className="nav-link text-white">Home</Link>
+              <Link href="/unsere-schule" className="nav-link text-white">Unsere Schule</Link>
+              <Link href="/bildergalerie" className="nav-link text-white">Bildergalerie</Link>
+              <Link href="/elternbriefe" className="nav-link text-white">Elternbriefe</Link>
             </div>
-          </nav>
-        </header>
-        <main className="min-h-screen pb-16">
+            {/* Mobile nav placeholder */}
+            <div className="md:hidden">
+              <details className="relative">
+                <summary className="text-white cursor-pointer list-none p-2">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                </summary>
+                <div className="absolute right-0 mt-2 w-48 rounded-lg shadow-xl overflow-hidden" style={{background: 'var(--color-primary-dark)'}}>
+                  <Link href="/" className="block px-4 py-3 text-white hover:bg-green-900">Home</Link>
+                  <Link href="/unsere-schule" className="block px-4 py-3 text-white hover:bg-green-900">Unsere Schule</Link>
+                  <Link href="/bildergalerie" className="block px-4 py-3 text-white hover:bg-green-900">Bildergalerie</Link>
+                  <Link href="/elternbriefe" className="block px-4 py-3 text-white hover:bg-green-900">Elternbriefe</Link>
+                </div>
+              </details>
+            </div>
+          </div>
+        </nav>
+
+        <main style={{paddingBottom: '50px'}}>
           {children}
         </main>
-        <footer className="bg-gray-800 text-white py-8">
-          <div className="container mx-auto px-4 text-center">
-            <p className="font-bold text-lg mb-2">Felsland Grundschule Bruchweiler-Bärenbach</p>
-            <p className="text-gray-300">Gartenstraße 79 &bull; 76891 Bruchweiler-Bärenbach</p>
-            <p className="text-gray-300 mt-1">
-              <a href="tel:+4963949209560" className="hover:text-white">+49 6394 92 09 56-0</a>
-              {' | '}
-              <a href="mailto:info@felsland-grundschule.de" className="hover:text-white">info@felsland-grundschule.de</a>
-            </p>
-            <div className="mt-4 text-gray-400 text-sm flex justify-center gap-4">
-              <a href="/impressum" className="hover:text-white">Impressum</a>
-              <a href="/datenschutz" className="hover:text-white">Datenschutz</a>
+
+        <footer style={{background: 'var(--color-primary)', color: '#fff'}} className="py-10 mt-12">
+          <div className="container mx-auto px-4">
+            <div className="grid md:grid-cols-3 gap-8">
+              <div>
+                <h3 className="font-bold text-lg mb-3 text-yellow-300">Felsland Grundschule</h3>
+                <p>Gartenstra&szlig;e 79</p>
+                <p>76891 Bruchweiler-B&auml;renbach</p>
+                <p className="mt-2">
+                  <a href="tel:+4963949209560" className="hover:text-yellow-300">Tel: (06394) 92 09 56 &ndash; 0</a>
+                </p>
+                <p>Fax: (06394) 92 09 56 &ndash; 20</p>
+                <p className="mt-1">
+                  <a href="mailto:sebastian.nikolaus@dahner-felsenland.de" className="hover:text-yellow-300 text-sm">
+                    sebastian.nikolaus@dahner-felsenland.de
+                  </a>
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-lg mb-3 text-yellow-300">Navigation</h3>
+                <ul className="space-y-2">
+                  <li><Link href="/" className="hover:text-yellow-300">Home</Link></li>
+                  <li><Link href="/unsere-schule" className="hover:text-yellow-300">Unsere Schule</Link></li>
+                  <li><Link href="/bildergalerie" className="hover:text-yellow-300">Bildergalerie</Link></li>
+                  <li><Link href="/elternbriefe" className="hover:text-yellow-300">Elternbriefe</Link></li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-bold text-lg mb-3 text-yellow-300">Rechtliches</h3>
+                <ul className="space-y-2">
+                  <li><Link href="/impressum" className="hover:text-yellow-300">Impressum</Link></li>
+                  <li><Link href="/datenschutz" className="hover:text-yellow-300">Datenschutz</Link></li>
+                </ul>
+                <p className="mt-4 text-green-200 text-sm">Schultr&auml;ger: Verbandsgemeinde Dahner Felsenland</p>
+              </div>
             </div>
-            <p className="text-gray-500 text-xs mt-3">&copy; 2026 Felsland Grundschule Bruchweiler-Bärenbach</p>
+            <div className="border-t border-green-700 mt-8 pt-6 text-center text-green-300 text-sm">
+              &copy; 2026 Felsland Grundschule Bruchweiler-B&auml;renbach
+            </div>
           </div>
         </footer>
-        {/* DemoBanner */}
-        <div style={{
-          position: 'fixed',
-          bottom: 0,
-          left: 0,
-          right: 0,
-          background: '#1a1a2e',
-          color: '#fff',
-          textAlign: 'center',
-          padding: '8px 16px',
-          fontSize: '13px',
-          zIndex: 9999,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: '8px'
-        }}>
-          <span>&#128202; Demo-Website von Minicon</span>
-          <a
-            href="https://www.minicon.eu/webseiten/?ref=felsland-grundschule.minicon.eu"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{color: '#60a5fa', textDecoration: 'underline'}}
-          >
-            Jetzt professionelle Website anfragen
+
+        {/* Demo Banner */}
+        <div className="demo-banner">
+          Diese Website ist eine Demo von{' '}
+          <a href="https://www.minicon.eu/webseiten/?ref=felsland-grundschule.minicon.eu" target="_blank" rel="noopener noreferrer">
+            minicon.eu/webseiten
           </a>
         </div>
       </body>
