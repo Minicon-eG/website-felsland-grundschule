@@ -9,6 +9,4 @@ jobs:
       site_name: felsland-grundschule
       domain: felsland-grundschule.minicon.eu
       cloudflare_pages_project: website-felsland-grundschule
-    secrets:
-      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    secrets: inherit
